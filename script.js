@@ -15,11 +15,17 @@ let submitBtn = document.getElementById('submitBtn');
 let backBtn = document.getElementById('backBtn');
 
 app.style.display = 'none';
+// inputView.style.display = 'none';
 
 submitBtn.onclick = function () {
-    getWeather(input.value);
-    app.style.display = 'block';
-    inputView.style.display = 'none';
+    if (input.value == '') {
+        input.style.borderColor = 'red'
+    } else {
+        getWeather(input.value);
+        input.style.borderColor = '';
+        app.style.display = 'block';
+        inputView.style.display = 'none';
+    }
 }
 backBtn.onclick = function () {
     app.style.display = 'none';
